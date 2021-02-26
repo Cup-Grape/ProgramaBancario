@@ -13,61 +13,38 @@ class Conta
     //Get e Set_________inicio_______________
     public int Numdconta
     {
-        get{return numdconta;}
         set{numdconta = value;}
     }
 
     public string Nomedtitular
     {
-        get{return nomedtitular;}
         set{nomedtitular = value;}
     }
 
-    public decimal Saldodconta
-    {
-        get{return saldodconta;}
-        set{saldodconta = value;}
-    }
     //Get e Set___________Fim________________
 
     
     //Métodos________________Inicio_______________________________
 
-    //Ciando a conta do cliente________
-    public void criandoaconta()
+    //Atualiza o usuario quando é feito um depósito inicial
+    public void atualização(decimal valorind)
     {
-            string escolha;
+        saldodconta = valorind;
 
-            Console.Write("Numero da conta: ");
-            numdconta = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Status da conta:");
+        Console.WriteLine($"Conta : {numdconta}, Nome: {nomedtitular} Saldo: {saldodconta}\n");
 
-            Console.Write("Nome da conta: ");
-            nomedtitular = Console.ReadLine();
-
-            Console.Write("Deseja colocar um saldo inicial na conta? (Y/N)? ");
-            escolha = Console.ReadLine();
-            
-            //Escolha 1 fazer depósito inicial
-            if(escolha == "y")
-            {
-                Console.Write("Depósito inicial: ");
-                valordincial = Convert.ToDecimal(Console.ReadLine());
-            }
-            //Escolha 1 fazer depósito inicial
-            
-            //Escolha 2 não fazer depósito inicial
-            if(escolha == "n")
-            {
-                valordincial = 0.00M;
-            }
-            //Escolha 2 não fazer depósito inicial
-
-            //Define o valor inicial com o saldo da conta
-            saldodconta = valordincial;
-            //Define o valor inicial com o saldo da conta
 
     }
-    //Ciando a conta do cliente________
+    //Atualiza o usuario quando é feito um depósito inicial
+
+    //Atualiza para o usuario as informações e atualizações feitas
+    private void atualização()
+    {
+        Console.WriteLine("Status da conta:");
+        Console.WriteLine($"Conta : {numdconta}, Nome: {nomedtitular} Saldo: {saldodconta}\n");
+    }
+    //Atualiza para o usuario as informações e atualizações feitas
 
     //Depósito_________________________
     public void deposito()
@@ -76,6 +53,8 @@ class Conta
         Console.Write("Qual o valor para depósito: ");
         depvalor = Convert.ToDecimal(Console.ReadLine());
         saldodconta += depvalor;
+
+        atualização();
     }
     //Depósito_________________________
 
@@ -87,6 +66,7 @@ class Conta
         saqvalor = Convert.ToDecimal(Console.ReadLine());
         saldodconta -= saqvalor + 5.00M;
 
+        atualização();
     }
     //Saques___________________________
 
