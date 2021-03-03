@@ -5,54 +5,56 @@ namespace App_do_Banco
     class Program
     {
         static void Main(string[] args)
-        {
-            //Chamando o objeto Conta
-            Conta obj = new Conta();
-            //_______________________
+        {   
+        //Variaveis locais
+            decimal valorinicial = 00.00M;
+            int numero = 0 ;
+            string nome;   
+            //___________________________
 
-            decimal valorinicial;
-            
-            //Cadastra o numero da conta
+        //Cadastra o numero da conta
             Console.Write("Numero da conta: ");
-            obj.Numdconta = Convert.ToInt32(Console.ReadLine());
+            numero = Convert.ToInt32(Console.ReadLine());
             //_______________________
 
-            //Cadastra o nome da conta
+        //Cadastra o nome da conta
             Console.Write("Nome da conta: ");
-            obj.Nomedtitular = Console.ReadLine();
+            nome = Console.ReadLine();
             //_______________________
 
-            //Escolha de fazer o saldo inicial ou não
+        //Escolha de fazer o saldo inicial ou não
             string escolha;
             Console.Write("Deseja colocar um saldo inicial na conta? (Y/N)? ");
             escolha = Console.ReadLine();
             //_______________________
 
-            //Escolha 1 fazer depósito inicial
+        //Escolha 1 fazer depósito inicial
             if(escolha == "y")
             {
                 Console.Write("Depósito inicial: ");
                 valorinicial = Convert.ToDecimal(Console.ReadLine());
-                obj.atualização(valorinicial);
             }
-            //Escolha 1 fazer depósito inicial
+            //____________________________
             
-            //Escolha 2 não fazer depósito inicial
+        //Escolha 2 não fazer depósito inicial
             if(escolha == "n")
             {
                 valorinicial = 0.00M;
-                obj.atualização(valorinicial);
             }
-            //Escolha 2 não fazer depósito inicial
+            //_____________________________
 
-            //Chamando o método Deposito
+        //Chamando o objeto Conta
+            Conta obj = new Conta(valorinicial, numero, nome);
+            //_______________________
+
+
+        //Chamando o método Deposito
             obj.deposito();
-            //Chamando o método Deposito
-
+            //_________________________
   
-            //Chamando o método Saque
+        //Chamando o método Saque
             obj.saques();
-            //Chamando o método Saque
+            //________________________
 
 
 

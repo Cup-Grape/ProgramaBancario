@@ -2,15 +2,15 @@ using System;
 
 class Conta
 {
-    //Atributos________________________
-    private int numdconta;
-    private string nomedtitular;
-    private decimal valordincial;
-    private decimal saldodconta;
-    //Atributos________________________
+//Atributos________________________
+    private int numdconta; //Numero da conta
+    private string nomedtitular; //Nome da conta
+    private decimal saldodconta; // Saldo da conta
+//Atributos________________________
 
 
-    //Get e Set_________inicio_______________
+
+//Get e Set_________inicio_______________
     public int Numdconta
     {
         set{numdconta = value;}
@@ -21,32 +21,32 @@ class Conta
         set{nomedtitular = value;}
     }
 
-    //Get e Set___________Fim________________
+//Get e Set___________Fim________________
+
+
+
+//Métodos construtores________________________________________
+
+    public Conta(decimal saldodconta, int numdconta, string nomedtitular)
+    {
+    //Atribui os valores para os atributos e notifica os dados da conta
+        
+        //Atribuir os valores
+        this.saldodconta = saldodconta;
+        this.numdconta = numdconta;
+        this.nomedtitular = nomedtitular;
+
+        
+        //Notifica o os dados da conta
+        Console.WriteLine($"\n Numero da conta: {numdconta} Nome: {nomedtitular} Saldo: {saldodconta} \n");
+
+    }
+
+//Métodos construtores________________________________________
 
     
-    //Métodos________________Inicio_______________________________
-
-    //Atualiza o usuario quando é feito um depósito inicial
-    public void atualização(decimal valorind)
-    {
-        saldodconta = valorind;
-
-        Console.WriteLine("Status da conta:");
-        Console.WriteLine($"Conta : {numdconta}, Nome: {nomedtitular} Saldo: {saldodconta}\n");
-
-
-    }
-    //Atualiza o usuario quando é feito um depósito inicial
-
-    //Atualiza para o usuario as informações e atualizações feitas
-    private void atualização()
-    {
-        Console.WriteLine("Status da conta:");
-        Console.WriteLine($"Conta : {numdconta}, Nome: {nomedtitular} Saldo: {saldodconta}\n");
-    }
-    //Atualiza para o usuario as informações e atualizações feitas
-
-    //Depósito_________________________
+//________Métodos________________Inicio_______________________________
+//Depósito_________________________
     public void deposito()
     {
         decimal depvalor;
@@ -54,11 +54,14 @@ class Conta
         depvalor = Convert.ToDecimal(Console.ReadLine());
         saldodconta += depvalor;
 
-        atualização();
+        Console.WriteLine("Conta dados:");
+        Console.WriteLine($"\n Numero da conta: {numdconta} Nome: {nomedtitular} Saldo: {saldodconta} \n");
+
+
     }
     //Depósito_________________________
 
-    //Saques___________________________
+//Saques___________________________
     public void saques()
     {
         decimal saqvalor;
@@ -66,12 +69,17 @@ class Conta
         saqvalor = Convert.ToDecimal(Console.ReadLine());
         saldodconta -= saqvalor + 5.00M;
 
-        atualização();
+        Console.WriteLine("Conta dados:");
+        Console.WriteLine($"Numero da conta: {numdconta} Nome: {nomedtitular} Saldo: {saldodconta} \n");
+
+
     }
     //Saques___________________________
 
 
-    //Métodos_________________Fim_______________________________
+
+
+//________Métodos_________________Fim_________________________________
 
 
 
